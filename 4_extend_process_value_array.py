@@ -1,11 +1,11 @@
 from time import sleep
-from multiprocessing import Process, Value, Array as Valuearray
+from multiprocessing import Process, Value, Array
 
 class CustomProcess(Process):
     def __init__(self):
         super().__init__()  # Initialize the base Process class
         self.data = Value('i', 1)  # Shared integer value
-        self.array = Valuearray('i', range(5))  # Shared array of integers
+        self.array = Array('i', range(5))  # Shared array of integers
     
     def run(self):
         print("Process started")
